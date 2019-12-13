@@ -1,14 +1,21 @@
 .game {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 80%;
     margin: 100px auto;
 }
 
 .game div {
 }
 
+.game-board {
+    /* width: 40%;
+    margin: 0 auto; */
+}
+
 .game-info {
+    /* width: 40%;
+    margin: 0 auto; */
     margin-left: 20px;
 }
   

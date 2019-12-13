@@ -1,16 +1,19 @@
 .square {
   background: #fff;
   border: 1px solid #999;
+  /* border: none; */
+  /* margin: -4px; */
   float: left;
   font-size: 40px;
   font-weight: bold;
-  line-height: 100px;
+  line-height: 120px;
   height: 100px;
   width: 100px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
   text-align: center;
+}
+
+.current {
+  border-color: red;
 }
 
 .square:focus {
@@ -19,4 +22,11 @@
 
 .kbd-navigation .square:focus {
   background: #ddd;
+}
+
+.img-player {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }

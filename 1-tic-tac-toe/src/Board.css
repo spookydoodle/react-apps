@@ -1,10 +1,37 @@
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
+
 
 .status {
   margin-bottom: 10px;
   font-size: 24px;
 }
+
+td {
+	width: 100px;
+	height: 100px;
+	border: solid #999 1px;
+	border:none;
+  background: white;
+}
+
+
+
+
+
+
+/* .sides {
+	border-left: solid black 1px;
+	border-right: solid black 1px;
+}
+
+.top_bottom {
+	border-top: solid black 1px;
+	border-bottom: solid black 1px;
+} */
+
+
+/* 
+table, div{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+} */

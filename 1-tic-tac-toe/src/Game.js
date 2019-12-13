@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Board from './Board';
 import './Game.css';
-import PropTypes from 'prop-types';
-import { callbackify } from 'util';
 
 
 class Game extends React.Component {
@@ -12,6 +9,7 @@ class Game extends React.Component {
         this.state = {
             history: [{
                 squares: Array(9).fill(null),
+                location: null
             }],
             stepNumber: 0,
             xIsNext: true,
@@ -30,7 +28,8 @@ class Game extends React.Component {
 
         this.setState({
             history: history.concat([{
-                squares: squares
+                squares: squares,
+                location: i
             }]),
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
@@ -39,6 +38,7 @@ class Game extends React.Component {
 
     jumpTo(step) {
         this.setState({
+            // history: this.state.history.slice(0, step + 1), // to remove steps after
             stepNumber: step,
             xIsNext: (step % 2) === 0,
         })
@@ -50,7 +50,9 @@ class Game extends React.Component {
         const winner = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
-            const desc = move ? `Go to move # ${move}` : `Go to game start`;
+            const player = move % 2 === 1 ? 'X' : 'O';
+            const location = `C${step.location % 3} R${Math.floor(step.location/3)}`;
+            const desc = move ? `Go to move # ${move} (P${player} - L(${location}))` : `Go to game start`;
             return (
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>
@@ -71,6 +73,7 @@ class Game extends React.Component {
             <div className="game">
                 <div className="game-board">
                     <Board 
+                        current={current.location}
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                     />
