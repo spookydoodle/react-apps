@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Board from './Board';
+import BackendButton from './BackendButton';
 import './Game.css';
 
 
@@ -70,6 +71,7 @@ class Game extends React.Component {
         }
 
         return (
+            <>
             <div className="game">
                 <div className="game-board">
                     <Board 
@@ -84,6 +86,10 @@ class Game extends React.Component {
                     <ol>{ moves }</ol>
                 </div>
             </div>
+            <div className="footer">
+                <BackendButton/>
+            </div>
+            </>
         );
     }
 }
