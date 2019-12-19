@@ -15,7 +15,13 @@ http.createServer(function (req, res) {
 
   state.counter += 1;
 
-  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.writeHead(
+      200,
+      {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+      }
+  );
   res.end(JSON.stringify(state));
 }).listen(PORT);
 
